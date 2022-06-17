@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+    <body>
+    	<div id='header_personal'>
+    		<h1 style='text-align: center;'> Course Details </h1>
+    	</div>
+    	<div id='table_personal_details'>
+			<table id = "course-detail">
+				<thead>
+					<tr>
+						<th>Course Code</th>
+						<th>Course Name</th>
+						<th>Course Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>{{ course.course_code }}</td>
+						<td>{{ course.course_name }}</td>
+						<td>{{ course.course_description }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div id='header_enroll'>
+    		<h1 style='text-align: center;'> Enrollment List </h1>
+    	</div>
+		<div id='enrollment_details'>
+			<table id = "course-table">
+				<thead>
+					<tr>
+						<th>SNo</th>
+						<th>Roll Number</th>
+						<th>Student First Name</th>
+						<th>Student Last Name</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for student in students %}
+					<tr>
+						<td>{{ loop.index }}</td>
+						<td>{{ student[0] }}</td>
+						<td>{{ student[1] }}</td>
+						<td>{{ student[2] }}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<div id='go_back'>
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+			<a href='/courses'> Go Back </a>
+		</div>
+	</body>
+</html>		

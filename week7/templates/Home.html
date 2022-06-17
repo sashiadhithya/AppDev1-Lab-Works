@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+h1 {
+  display: flex;
+  justify-content: space-between;
+}
+	</style>
+    <meta charset="utf-8">
+</head>
+    <body>
+    	<div id='header'>
+    		<h1><span>Student List</span> <a href='/courses'>Go to Courses</a></h1>
+    	</div>
+    	<div id='table'>
+			<table id = "all-students">
+				<tr>
+					<th>SNo</th>
+					<th>Roll Number</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Actions</th>
+				</tr>
+            {% for student in student %}
+               <tr>
+                  <td>{{ loop.index }}</td>
+                  <td><a href="/student/{{ student.student_id }}" > {{ student.roll_number }} </a></td>
+                  <td>{{ student.first_name }}</td>
+                  <td>{{ student.last_name }}</td>
+                  <td> <a href="/student/{{ student.student_id }}/update" type="button">Update</a>
+							  <a href="/student/{{ student.student_id }}/delete" type="button">Delete</a> 
+						</td>
+               </tr>
+            {% endfor %}
+			</table>
+		</div>
+		<div id='add'>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <a href="/student/create"> +Add Student </a>
+      </div>
+	</body>
+</html>

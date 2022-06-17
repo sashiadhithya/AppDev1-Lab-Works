@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <style>
+h1 {
+  display: flex;
+  justify-content: space-between;
+}
+    </style>
+    <meta charset="utf-8">
+</head>
+    <body>
+    	 <div id='header'>
+            <h1><span>Course list</span> <a href='/'>Go to Students</a></h1>
+        </div>
+        <body>
+            <div id='table'>
+                <table id = "all-courses">
+                    <tr>
+                        <th>SNo</th>
+                        <th>Course Code</th>
+                        <th>Course Name</th>
+                        <th>Course Description</th>
+                        <th>Actions</th>
+                    </tr>
+                    {% for course in courses %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td><a href="/course/{{ course.course_id }}">{{ course.course_code }}</a></td>
+                        <td>{{ course.course_name }}</td>
+                        <td>{{ course.course_description }}</td>
+                        <td>
+                        <a href="/course/{{ course.course_id }}/update">Update</a>
+                        <a href="/course/{{ course.course_id }}/delete">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div id='add'>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <a href="/course/create"> +Add Course </a>
+            </div>
+    </body>
+</html>
